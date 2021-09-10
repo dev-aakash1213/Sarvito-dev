@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:login_signup_screen/forgot.dart';
 import 'package:login_signup_screen/login.dart';
 import 'package:login_signup_screen/signup.dart';
 
@@ -98,7 +99,27 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           fontSize: 18),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 20),
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height: 60,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ForgotPass()));
+                    },
+                    // defining the shape
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Text(
+                      "Forgot Password",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                    ),
+                  ),
                 ],
               )
             ],
