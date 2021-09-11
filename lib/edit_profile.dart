@@ -17,6 +17,7 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  bool showPassword = false;
   var isPasswordTextField;
 
   @override
@@ -98,7 +99,31 @@ class _EditProfilePageState extends State<EditProfilePage> {
               buildTextField("Full Name", "Najeeb Rizvi", false),
               buildTextField("E-mail", "aaa@gmail.com", false),
               buildTextField("Password", "**********", true),
-              buildTextField("Location", "Delhi", false),
+              buildTextField("Location", "Delhi,  India", false),
+              SizedBox(
+                height: 35,
+              )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  OutlineButton(
+                    padding: EdgeInsets.symmetric(horizontal: 50),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    onPressed: () {},
+                    child: Text("CANCEL",
+                        style: TextStyle(
+                            fontSize: 14,
+                            letterSpacing: 2.2,
+                            color: Colors.black)),
+                  ),
+                  RaisedButton(onPressed: (){}
+                  color: Colors.green,
+                  padding: EdgeInsets.symmetric(horizontal: 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                  child: Text("SAVE", style: TextStyle(fontSize: 14,letterSpacing: 2.2, color: Colors.white),),)
+                ],
+              )
             ],
           ),
         ),
@@ -107,15 +132,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
   }
 
   Widget buildTextField(
-      String labelText, String placeholder, boolisPasswordTextField) {
+      String labelText, String placeholder, bool isPasswordTextField) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 35.0),
       child: TextField(
-        obscureText: isPasswordTextField,
+        obscureText: isPasswordTextField ? showPassword : false,
         decoration: InputDecoration(
             suffixIcon: isPasswordTextField
                 ? IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        showPassword = !showPassword;
+                      });
+                    },
                     icon: Icon(
                       Icons.remove_red_eye,
                       color: Colors.grey,
