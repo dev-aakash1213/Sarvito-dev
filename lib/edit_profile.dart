@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:login_signup_screen/settings.dart';
 
-class SettingUI extends StatelessWidget {
+class SettingsUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "SettingUI",
+      title: "Setting UI",
       home: EditProfilePage(),
     );
   }
@@ -18,23 +19,34 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   bool showPassword = false;
-  var isPasswordTextField;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          elevation: 1,
-          leading: IconButton(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 1,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.green,
+          ),
+          onPressed: () {},
+        ),
+        actions: [
+          IconButton(
             icon: Icon(
-              Icons.arrow_back,
+              Icons.settings,
               color: Colors.green,
             ),
-            onPressed: () {},
-          )),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => SettingsPage()));
+            },
+          ),
+        ],
+      ),
       body: Container(
-        padding: EdgeInsets.only(left: 16, top: 24, right: 16),
+        padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
@@ -52,25 +64,26 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 child: Stack(
                   children: [
                     Container(
-                        width: 130,
-                        height: 130,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 4,
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 2,
-                                  blurRadius: 10,
-                                  color: Colors.black.withOpacity(0.1),
-                                  offset: Offset(0, 10)),
-                            ],
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: NetworkImage(
-                                    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F416301559306000306%2F&psig=AOvVaw0pzPDMInExb0YzRwKmrD0Y&ust=1631297716829000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCJjOg9q_8vICFQAAAAAdAAAAABAD")))),
+                      width: 130,
+                      height: 130,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 4,
+                              color: Theme.of(context).scaffoldBackgroundColor),
+                          boxShadow: [
+                            BoxShadow(
+                                spreadRadius: 2,
+                                blurRadius: 10,
+                                color: Colors.black.withOpacity(0.1),
+                                offset: Offset(0, 10))
+                          ],
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
+                              ))),
+                    ),
                     Positioned(
                         bottom: 0,
                         right: 0,
@@ -78,13 +91,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           height: 40,
                           width: 40,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                width: 4,
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor,
-                              ),
-                              color: Colors.green),
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 4,
+                              color: Theme.of(context).scaffoldBackgroundColor,
+                            ),
+                            color: Colors.green,
+                          ),
                           child: Icon(
                             Icons.edit,
                             color: Colors.white,
@@ -96,19 +109,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name", "Najeeb Rizvi", false),
-              buildTextField("E-mail", "aaa@gmail.com", false),
-              buildTextField("Password", "**********", true),
-              buildTextField("Location", "Delhi,  India", false),
+              buildTextField("Full Name", "Dor Alex", false),
+              buildTextField("E-mail", "alexd@gmail.com", false),
+              buildTextField("Password", "********", true),
+              buildTextField("Location", "TLV, Israel", false),
               SizedBox(
                 height: 35,
-              )
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   OutlineButton(
                     padding: EdgeInsets.symmetric(horizontal: 50),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
                     onPressed: () {},
                     child: Text("CANCEL",
                         style: TextStyle(
@@ -116,12 +130,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),
-                  RaisedButton(onPressed: (){}
-                  color: Colors.green,
-                  padding: EdgeInsets.symmetric(horizontal: 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                  child: Text("SAVE", style: TextStyle(fontSize: 14,letterSpacing: 2.2, color: Colors.white),),)
+                  RaisedButton(
+                    onPressed: () {},
+                    color: Colors.green,
+                    padding: EdgeInsets.symmetric(horizontal: 50),
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Text(
+                      "SAVE",
+                      style: TextStyle(
+                          fontSize: 14,
+                          letterSpacing: 2.2,
+                          color: Colors.white),
+                    ),
+                  )
                 ],
               )
             ],
