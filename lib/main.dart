@@ -5,6 +5,8 @@ import 'package:login_signup_screen/forgot.dart';
 import 'package:login_signup_screen/login.dart';
 import 'package:login_signup_screen/signup.dart';
 
+import 'package:login_signup_screen/edit_profile.dart';
+
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -108,7 +110,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ForgotPass()));
+                              builder: (context) => EditProfilePage()));
                     },
                     // defining the shape
                     shape: RoundedRectangleBorder(
