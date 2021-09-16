@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Description.dart';
+
 class ServicePro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,10 @@ class ServicePro extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
         child: InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => MyApp()));
+            },
             child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15.0),

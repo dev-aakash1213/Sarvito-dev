@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:favorite_button/favorite_button.dart';
+// import 'package:favorite_button/favorite_button.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -74,11 +74,11 @@ class MyApp extends StatelessWidget {
                                 fontSize: 36, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        FavoriteButton(
-                          valueChanged: (_isFavorite) {
-                            print('Is Favorite $_isFavorite)');
-                          },
-                        )
+                        // FavoriteButton(
+                        //   valueChanged: (_isFavorite) {
+                        //     print('Is Favorite $_isFavorite)');
+                        //   },
+                        // )
                       ],
                     ),
                   ),
