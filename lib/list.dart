@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_signup_screen/bottomBar_.dart';
 import 'servicer_person.dart';
+import 'edit_profile.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -80,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage>
                       )),
                 ),
                 Tab(
-                  child: Text('Live Now',
+                  child: Text('Verified',
                       style: TextStyle(
                         fontFamily: 'Varela',
                         fontSize: 21.0,
@@ -105,7 +107,9 @@ class _MyHomePageState extends State<MyHomePage>
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+        },
         backgroundColor: Color(0xff0095FF),
         child: Icon(Icons.person),
       ),

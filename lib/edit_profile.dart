@@ -6,7 +6,7 @@ class SettingsUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Setting UI",
+      title: "Profile Setting",
       home: EditProfilePage(),
     );
   }
@@ -28,7 +28,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.green,
+            color: Color(0xff0095FF),
           ),
           onPressed: () {},
         ),
@@ -36,7 +36,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           IconButton(
             icon: Icon(
               Icons.settings,
-              color: Colors.green,
+              color: Color(0xff0095FF),
             ),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -96,7 +96,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               width: 4,
                               color: Theme.of(context).scaffoldBackgroundColor,
                             ),
-                            color: Colors.green,
+                            color: Color(0xff0095FF),
                           ),
                           child: Icon(
                             Icons.edit,
@@ -130,21 +130,48 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),
-                  RaisedButton(
-                    onPressed: () {},
-                    color: Colors.green,
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Text(
-                      "SAVE",
-                      style: TextStyle(
-                          fontSize: 14,
-                          letterSpacing: 2.2,
-                          color: Colors.white),
+                    Padding(padding:
+                    EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                        padding: EdgeInsets.only(top: 3, left: 3),
+                        decoration:
+                          BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            border: Border(
+                              bottom: BorderSide(color: Colors.black),
+                              top: BorderSide(color: Colors.black),
+                              left: BorderSide(color: Colors.black),
+                              right: BorderSide(color: Colors.black),
+
+                            )
+
+
+
+                          ),
+                        child: MaterialButton(
+                          minWidth: double.infinity,
+                          height: 60,
+                          onPressed: () {},
+                          color: Color(0xff0095FF),
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+
+                          ),
+                          child: Text(
+                            "Save Changes", style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white,
+
+                          ),
+                        ),
+
+                      ),
                     ),
-                  )
+                  ),
+
+
                 ],
               )
             ],
@@ -170,7 +197,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     },
                     icon: Icon(
                       Icons.remove_red_eye,
-                      color: Colors.grey,
+                      color: Colors.white,
                     ),
                   )
                 : null,
