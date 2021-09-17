@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
+import 'bottomBar_.dart';
+import 'edit_profile.dart';
 // import 'package:favorite_button/favorite_button.dart';
 
 void main() {
@@ -195,6 +198,15 @@ class MyApp extends StatelessWidget {
           )
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+        },
+        backgroundColor: Color(0xff0095FF),
+        child: Icon(Icons.person),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomBar(),
     );
   }
 }

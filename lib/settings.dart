@@ -19,7 +19,7 @@ class _SettingsPageState extends State<SettingsPage> {
           },
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.green,
+            color: Color(0xff0095FF),
           ),
         ),
       ),
@@ -38,7 +38,7 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.person,
-                  color: Colors.green,
+                  color: Color(0xff0095FF),
                 ),
                 SizedBox(
                   width: 8,
@@ -68,7 +68,7 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.volume_up_outlined,
-                  color: Colors.green,
+                  color: Color(0xff0095FF),
                 ),
                 SizedBox(
                   width: 8,
@@ -86,17 +86,12 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
-            buildNotificationOptionRow("New for you", true),
-            buildNotificationOptionRow("Account activity", true),
-            buildNotificationOptionRow("Opportunity", false),
+            
             SizedBox(
               height: 50,
             ),
             Center(
-              child: OutlineButton(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
+              child: OutlinedButton(
                 onPressed: () {},
                 child: Text("SIGN OUT",
                     style: TextStyle(
@@ -147,7 +142,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ],
                 ),
                 actions: [
-                  FlatButton(
+                  TextButton(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

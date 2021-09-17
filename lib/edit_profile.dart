@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:login_signup_screen/settings.dart';
+import 'bottomBar_.dart';
+import 'settings.dart';
 
 class SettingsUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Profile Setting",
+      title: "Edit Profile",
       home: EditProfilePage(),
     );
   }
@@ -119,10 +120,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  OutlineButton(
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                  OutlinedButton(
                     onPressed: () {},
                     child: Text("CANCEL",
                         style: TextStyle(
@@ -130,54 +128,31 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),
-                    Padding(padding:
-                    EdgeInsets.symmetric(horizontal: 40),
-                    child: Container(
-                        padding: EdgeInsets.only(top: 3, left: 3),
-                        decoration:
-                          BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border(
-                              bottom: BorderSide(color: Colors.black),
-                              top: BorderSide(color: Colors.black),
-                              left: BorderSide(color: Colors.black),
-                              right: BorderSide(color: Colors.black),
-
-                            )
-
-
-
-                          ),
-                        child: MaterialButton(
-                          minWidth: double.infinity,
-                          height: 60,
-                          onPressed: () {},
-                          color: Color(0xff0095FF),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-
-                          ),
-                          child: Text(
-                            "Save Changes", style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-
-                          ),
-                        ),
-
-                      ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "SAVE",
+                      style: TextStyle(
+                          fontSize: 14,
+                          letterSpacing: 2.2,
+                          color: Colors.white),
                     ),
-                  ),
-
-
+                  )
                 ],
               )
             ],
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+        },
+        backgroundColor: Color(0xff0095FF),
+        child: Icon(Icons.person),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomBar(),
     );
   }
 
@@ -197,7 +172,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     },
                     icon: Icon(
                       Icons.remove_red_eye,
-                      color: Colors.white,
+                      color: Colors.grey,
                     ),
                   )
                 : null,

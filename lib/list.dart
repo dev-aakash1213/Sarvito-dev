@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_signup_screen/bottomBar_.dart';
 import 'servicer_person.dart';
 import 'edit_profile.dart';
-
+import 'settings.dart';
 
 void main() => runApp(MyApp());
 
