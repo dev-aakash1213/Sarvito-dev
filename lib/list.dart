@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_signup_screen/bottomBar_.dart';
 import 'package:login_signup_screen/categories.dart';
 import 'package:login_signup_screen/myAccount.dart';
+import 'package:login_signup_screen/mycart.dart';
 import 'servicer_person.dart';
 import 'edit_profile.dart';
 import 'settings.dart';
@@ -55,10 +56,13 @@ class _MyHomePageState extends State<MyHomePage>
           actions: <Widget>[
             IconButton(
               icon: Icon(
-                Icons.notifications_none,
+                Icons.shopping_bag_outlined,
                 color: Color(0xff0095FF),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CartScreen()));
+              },
             )
           ]),
       body: ListView(
