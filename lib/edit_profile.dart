@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_signup_screen/myAccount.dart';
 import 'bottomBar_.dart';
 import 'settings.dart';
 
@@ -31,7 +32,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
             Icons.arrow_back,
             color: Color(0xff0095FF),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => Myaccountpage()));
+          },
         ),
         actions: [
           IconButton(
@@ -133,9 +137,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     child: Text(
                       "SAVE",
                       style: TextStyle(
-                          fontSize: 14,
-                          letterSpacing: 2.2,
-                          color: Colors.white),
+                        fontSize: 14,
+                        letterSpacing: 2.2,
+                        color: Colors.black,
+                      ),
                     ),
                   )
                 ],
@@ -146,7 +151,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => EditProfilePage()));
         },
         backgroundColor: Color(0xff0095FF),
         child: Icon(Icons.person),

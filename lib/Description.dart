@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:login_signup_screen/categories.dart';
+import 'package:login_signup_screen/list.dart';
 
 import 'bottomBar_.dart';
 import 'edit_profile.dart';
@@ -16,6 +18,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 1,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Color(0xff0095FF),
+          ),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MyHomePage()));
+          },
+        ),
+      ),
       body: Stack(
         children: [
           Container(
@@ -25,26 +41,7 @@ class MyApp extends StatelessWidget {
                 image: DecorationImage(
                     image: NetworkImage(
                         'https://degraceplumbing.com/wp-content/uploads/2016/02/NJ-plumber.jpg'),
-                    fit: BoxFit.cover)),
-          ),
-          Positioned(
-            left: 30,
-            top: 30 + MediaQuery.of(context).padding.top,
-            child: InkWell(
-              onTap: () {},
-              child: ClipOval(
-                child: Container(
-                  height: 42,
-                  width: 41,
-                  decoration: BoxDecoration(color: Colors.white, boxShadow: [
-                    BoxShadow(
-                        color: Colors.black.withOpacity(.25),
-                        offset: Offset(0, 4),
-                        blurRadius: 8)
-                  ]),
-                ),
-              ),
-            ),
+                    fit: BoxFit.fill)),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -200,7 +197,8 @@ class MyApp extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => EditProfilePage()));
         },
         backgroundColor: Color(0xff0095FF),
         child: Icon(Icons.person),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_signup_screen/bottomBar_.dart';
+import 'package:login_signup_screen/categories.dart';
+import 'package:login_signup_screen/myAccount.dart';
 import 'servicer_person.dart';
 import 'edit_profile.dart';
 import 'settings.dart';
@@ -39,8 +41,11 @@ class _MyHomePageState extends State<MyHomePage>
           elevation: 0.0,
           centerTitle: true,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Color(0xff0095FF)),
-            onPressed: () {},
+            icon: Icon(Icons.menu, color: Color(0xff0095FF)),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CategoriesPage()));
+            },
           ),
           title: Text('Services',
               style: TextStyle(
@@ -108,7 +113,8 @@ class _MyHomePageState extends State<MyHomePage>
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => Myaccountpage()));
         },
         backgroundColor: Color(0xff0095FF),
         child: Icon(Icons.person),
