@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'acc.dart';
 import 'myAccount.dart';
 import 'categories.dart';
 import 'main.dart';
@@ -180,6 +180,11 @@ class NavigationDrawerWidget extends StatelessWidget {
   void selectedItem(BuildContext context, int index) {
     Navigator.of(context).pop();
     switch (index) {
+      case 0:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => Body(),
+        ));
+        break;
       case 3:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => CategoriesPage(),
