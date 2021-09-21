@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:login_signup_screen/myAccount.dart';
+import 'package:flutter/widgets.dart';
+import 'package:login_signup_screen/Description.dart';
+import 'package:login_signup_screen/edit_profile.dart';
+import 'package:login_signup_screen/list.dart';
+import 'package:login_signup_screen/servicer_person.dart';
 import 'bottomBar_.dart';
 import 'settings.dart';
 
@@ -8,18 +12,18 @@ class SettingsUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Edit Profile",
-      home: EditProfilePage(),
+      title: "My Account",
+      home: Myaccountpage(),
     );
   }
 }
 
-class EditProfilePage extends StatefulWidget {
+class Myaccountpage extends StatefulWidget {
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
 }
 
-class _EditProfilePageState extends State<EditProfilePage> {
+class _EditProfilePageState extends State<Myaccountpage> {
   bool showPassword = false;
   @override
   Widget build(BuildContext context) {
@@ -34,7 +38,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => Myaccountpage()));
+                builder: (BuildContext context) => MyHomePage()));
           },
         ),
         actions: [
@@ -59,7 +63,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           child: ListView(
             children: [
               Text(
-                "Edit Profile",
+                "My Account",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
               ),
               SizedBox(
@@ -114,32 +118,55 @@ class _EditProfilePageState extends State<EditProfilePage> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name", "Najeeb", false),
-              buildTextField("E-mail", "Tripathi@gmail.com", false),
-              buildTextField("Password", "********", true),
-              buildTextField("Location", "Delhi, India", false),
-              buildTextField("Mobile Number", "+91, India", false),
+              Card(
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      ListTile(
+                        title: Text("Full Name",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
+                        subtitle: Text("Piyush Sharma"),
+                        leading: Icon(Icons.account_box_rounded),
+                      ),
+                      Divider(),
+                      ListTile(
+                        title: Text("Email Address",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
+                        subtitle: Text("abc@gmail.com"),
+                        leading: Icon(Icons.email),
+                      ),
+                      Divider(),
+                      ListTile(
+                        title: Text("Location",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
+                        subtitle: Text("New Delhi, India"),
+                        leading: Icon(Icons.location_on),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 35,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  OutlinedButton(
-                    onPressed: () {},
-                    child: Text("CANCEL",
-                        style: TextStyle(
-                            fontSize: 14,
-                            letterSpacing: 2.2,
-                            color: Colors.black)),
-                  ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              EditProfilePage()));
+                    },
                     child: Text(
-                      "SAVE",
+                      "Edit Profile",
                       style: TextStyle(
                         fontSize: 14,
                         letterSpacing: 2.2,
+                        fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
@@ -153,7 +180,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => EditProfilePage()));
+              MaterialPageRoute(builder: (context) => Myaccountpage()));
         },
         backgroundColor: Color(0xff0095FF),
         child: Icon(Icons.person),

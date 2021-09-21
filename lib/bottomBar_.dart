@@ -26,7 +26,8 @@ class BottomBar extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           Icon(Icons.home, color: Color(0xff0095FF)),
-                          Icon(Icons.person_outline, color: Color(0xff0095FF))
+                          Icon(Icons.star_border_outlined,
+                              color: Color(0xff0095FF))
                         ],
                       )),
                   Container(

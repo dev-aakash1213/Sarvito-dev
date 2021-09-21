@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:login_signup_screen/forgot.dart';
 import 'package:login_signup_screen/login.dart';
 import 'package:login_signup_screen/signup.dart';
-
+import 'package:login_signup_screen/Description.dart';
 import 'package:login_signup_screen/edit_profile.dart';
+
+import 'myAccount.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -25,7 +27,7 @@ class HomePage extends StatelessWidget {
           // while MediaQuery make it big as per the screen
 
           width: double.infinity,
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height - -30,
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
           child: Column(
             // even space distribution
@@ -110,7 +112,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => EditProfilePage()));
+                              builder: (context) => ForgotPass()));
                     },
                     // defining the shape
                     shape: RoundedRectangleBorder(
