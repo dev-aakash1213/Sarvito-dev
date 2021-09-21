@@ -6,6 +6,7 @@ import 'package:login_signup_screen/mycart.dart';
 import 'servicer_person.dart';
 import 'edit_profile.dart';
 import 'settings.dart';
+import 'navigation_drawer_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,8 +45,10 @@ class _MyHomePageState extends State<MyHomePage>
           leading: IconButton(
             icon: Icon(Icons.menu, color: Color(0xff0095FF)),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CategoriesPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NavigationDrawerWidget()));
             },
           ),
           title: Text('Services',
